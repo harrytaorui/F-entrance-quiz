@@ -1,0 +1,31 @@
+.group {
+  border: solid black 1px;
+  padding: 0;
+}
+
+h1 {
+  width: 90%;
+}
+
+.group-member {
+  display: flex;
+  padding: 10px;
+}
+
+.group p {
+  text-align: center;
+  background-color: #8490a5;
+  padding: 6px 0;
+  color: white;
+  margin: 0;
+}
+
+.member {
+  width: 11%;
+  height: 30px;
+  border-radius: 5%;
+  background-color: lightgrey;
+  margin: 5px;
+  text-align: center;
+  list-style: none;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Group.css';
 
 export default class Group extends Component {
   // eslint-disable-next-line react/state-in-constructor
@@ -34,23 +35,23 @@ export default class Group extends Component {
     }
     return (
       <div className="group-list">
-        {' '}
-        分组列表
+        <h1>分组列表</h1>
         <button type="submit" onClick={() => this.createGroup()}>
           分组学员
         </button>
         {groups.map((group, index) => {
           return (
-            <ul key={index}>
-              {' '}
-              {index + 1} 组
-              {group.map((member, memberIndex) => {
-                return (
-                  <li key={memberIndex}>
-                    {member.id}.{member.name}
-                  </li>
-                );
-              })}
+            <ul key={index} className="group">
+              <p>{index + 1} 组</p>
+              <div className="group-member">
+                {group.map((member, memberIndex) => {
+                  return (
+                    <li key={memberIndex} className="member">
+                      {member.id}.{member.name}
+                    </li>
+                  );
+                })}
+              </div>
             </ul>
           );
         })}

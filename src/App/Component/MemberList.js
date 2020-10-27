@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import './MemberList.css';
 
 export default class MemberList extends Component {
   // eslint-disable-next-line react/state-in-constructor
@@ -54,19 +55,19 @@ export default class MemberList extends Component {
     const { members, isOpen } = this.state;
     return (
       <div className="member-page">
+        <h1>学员列表</h1>
         <div className="member-list">
-          <h1>学员列表</h1>
           {members.map((member, index) => {
             return (
-              <div key={index}>
+              <div key={index} className="member">
                 {member.id}.{member.name}
               </div>
             );
           })}
-        </div>
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-        <div className="add-member" onClick={this.toggleModal}>
-          + 添加学员
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+          <div className="add-member member" onClick={this.toggleModal}>
+            +添加学员
+          </div>
         </div>
         <Modal isOpen={isOpen} className="add-modal">
           <input

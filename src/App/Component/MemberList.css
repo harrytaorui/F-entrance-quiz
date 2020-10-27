@@ -1,0 +1,23 @@
+.member-page {
+  background-color: #dadcde;
+}
+.member-list {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.member {
+  width: 11%;
+  height: 30px;
+  border-radius: 5%;
+  background-color: lightgrey;
+  margin: 5px;
+  text-align: center;
+}
+
+.add-member {
+  cursor: pointer;
+  border-radius: 0;
+  border: black solid 1px;
+}

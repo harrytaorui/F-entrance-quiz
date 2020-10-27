@@ -11,7 +11,13 @@ export default class Group extends Component {
   componentDidMount = async () => {
     const response = await fetch('http://localhost:8080/groups', { method: 'GET' });
     const groups = await response.json();
-    this.setState({ groups, isLoading: false, noContent: groups[0].length === 0 });
+    this.setState({ groups, isLoading: false, noContent: groups.length === 0 });
+  };
+
+  createGroup = async () => {
+    const response = await fetch('http://localhost:8080/groups', { method: 'POST' });
+    const groups = await response.json();
+    this.setState({ groups });
   };
 
   render() {
@@ -20,16 +26,27 @@ export default class Group extends Component {
       return <p>加载中</p>;
     }
     if (noContent) {
-      return <div />;
+      return (
+        <button type="submit" onClick={() => this.createGroup()}>
+          分组学员
+        </button>
+      );
     }
     return (
       <div className="group-list">
-        {groups.forEach((group, index) => {
+        {' '}
+        分组列表
+        <button type="submit" onClick={() => this.createGroup()}>
+          分组学员
+        </button>
+        {groups.map((group, index) => {
           return (
             <ul key={index}>
-              {group.forEach((member) => {
+              {' '}
+              {index + 1} 组
+              {group.map((member, memberIndex) => {
                 return (
-                  <li>
+                  <li key={memberIndex}>
                     {member.id}.{member.name}
                   </li>
                 );

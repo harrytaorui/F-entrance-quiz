@@ -8,6 +8,7 @@ class App extends Component {
   render() {
     return (
       <div data-testid="app" className="App">
+        {/* TODO GTB-工程实践： * 这里没有必要使用路由 */}
         <BrowserRouter>
           <Switch>
             <Route component={MemberPage} />

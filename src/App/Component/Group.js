@@ -9,6 +9,7 @@ export default class Group extends Component {
     noContent: true,
   };
 
+  // TODO: 同 MemberList.js 里面
   componentDidMount = async () => {
     const response = await fetch('http://localhost:8080/groups', { method: 'GET' });
     const groups = await response.json();
@@ -22,6 +23,7 @@ export default class Group extends Component {
   };
 
   render() {
+    // TODO GTB-知识点: + 正确使用ES6+语法解构
     const { groups, isLoading, noContent } = this.state;
     if (isLoading) {
       return <p>加载中</p>;
@@ -42,10 +44,12 @@ export default class Group extends Component {
         {groups.map((group, index) => {
           return (
             <ul key={index} className="group">
+              {/* TODO GTB-知识点: - 组名应由后台自动生成 */}
               <p>{index + 1} 组</p>
               <div className="group-member">
                 {group.map((member, memberIndex) => {
                   return (
+                    // TODO GTB-知识点: * 这里单个学生最后提取组件，和MemberList里面保持一致
                     <li key={memberIndex} className="member">
                       {member.id}.{member.name}
                     </li>
